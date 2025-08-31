@@ -1,0 +1,438 @@
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+// Accent (Pink)
+@use "sass:color";
+@use "sass:string";
+
+$hover-bg-color: color.mix(#ffffff, #36363a, 9%);
+$hover-button-bg-color : color.scale($hover-bg-color, $lightness :5%);
+$selected-button-bg-color : color.scale($hover-bg-color, $lightness :9%);
+$standard-gray : #36363a;
+$unselected-gray: #48484b;
+$light-gray : #5c5c5f;
+$accent-color: #3a944a;
+$notification-background : #54545a;
+
+window.Bar {
+  background: black;
+  color: transparent;
+  font-weight: bold;
+  min-height:32px;
+
+  > centerbox {
+    background: transparent;
+  }
+
+  .headerbutton > button {
+    border-radius: 64px;
+    border-color: transparent;
+    background : transparent;
+    padding:0 4px;
+    margin : 4px 0px;
+  }
+  .headerbutton:active > button {
+    background: $selected-button-bg-color;
+  }
+  
+  .headerbutton:hover >button {
+    background: $hover-button-bg-color;
+  }
+  .headerbutton > button.toggle:checked {
+    background:$selected-button-bg-color;
+  }
+  //This means the little arrow showing where menubutton is dissapears
+  
+  popover > arrow {
+    background-color: transparent;
+    border-width:0px;
+  }
+}
+//Calendar
+.calendarpopover > contents {
+  background: transparent;
+}
+.calendar {
+  background: $standard-gray;
+  border-radius: 32px;
+  padding: 16px;
+}
+.today {
+  box-shadow : none;
+  background: color.adjust(#47474c, $lightness: 4%);
+}
+.day-number {
+  border-radius:32px;
+  min-height: 32px;
+  min-width:32px;
+  padding: 4px 2px;
+  outline-color: color.adjust($accent-color, $lightness: 25%);
+}
+.day-number:hover {
+  background: color.adjust(#47474c, $lightness: 4%);
+}
+.day-number:active {
+  background: color.adjust(#47474c, $lightness: 9%);
+}
+.day-number:selected {
+  background:$accent-color;
+}
+.day-number:selected:hover {
+  background:color.adjust($accent-color, $lightness: 4%);
+}
+.day-number:selected:active {
+  background:color.adjust($accent-color, $lightness: 9%);
+}
+//Tray
+.traybutton > button {
+  background:transparent;
+  border-radius:999px;
+  border-width:0px;
+  margin:4px;
+}
+.traybutton > button.toggle:checked{
+  background:blue;
+}
+//System Icons in the headerbar
+.sysstatus {
+  > label,
+  > image {
+    margin: 0px 2px;
+  }
+}
+//Quicksettings Menu
+.quicksettings > arrow {
+  background:transparent;
+}
+.quicksettings > contents {
+  background:$standard-gray;
+  border-radius:32px;
+  border-width: 0px;
+  padding: 16px;
+}
+//The Button row
+.topicon {
+  color:white;
+}
+.clearbutton,
+.topbutton,
+.topmenu > button {
+  background:$unselected-gray;
+  border-radius:999px;
+  min-width:24px;
+  min-height:32px;
+  margin:8px;
+  border-width:0px;
+}
+.clearbutton:hover,
+.topbutton:hover,
+.topmenu > button:hover {
+  background: color.adjust(#47474c, $lightness: 4%);
+}
+.clearbutton:active,
+.topbutton:active,
+.topmenu > button:active {
+  background: color.adjust(#47474c, $lightness: 9%);
+}
+//The Icons/buttons near the sliders
+
+.togglemute {
+  background:transparent;
+  border-radius:999px;
+  border-width:0;
+}
+.togglemute:hover {
+  background:rgba(250, 250, 251, 0.13);
+}
+.togglemute:active {
+  background:rgba(250, 250, 251, 0.16);
+}
+//Sliders
+.slider {
+  background:transparent;
+
+  
+  > trough > slider {
+    background:#ffffff;
+  }
+  
+  > trough > highlight {
+    background : $accent-color;
+    padding : 3px 0px;
+    border-color:$accent-color;
+  }
+  
+  > trough {
+    background : $light-gray;
+    border : 0px;
+  }
+}
+
+
+//Individual Toggles (Wifi, Bluetooth...)
+.quicktoggletitle{
+  font-weight: bold;
+  font-size:1.25em;
+}
+.quicktogglesubtitle{
+  font-weight: normal;
+  font-size:0.8em;
+}
+.quicktoggleicon{
+  padding:4px 12px 4px 4px;
+}
+.quicktoggle {
+  color: white;
+  background: $unselected-gray;
+  border-radius: 999px;
+  border-width: 0px;
+  min-width:12em;
+  min-height:3.273em;
+  margin: 4px 8px;
+}
+
+.quicktogglehasmenu {
+  background: $unselected-gray;
+  border-radius: 999px 0 0 999px;
+  border-width: 0;
+  min-height:3.273em;
+  min-width:9em;
+  margin: 4px 0px 4px 8px;
+}
+
+.quicktoggle:hover,
+.quicktogglehasmenu:hover
+{
+  background:color.adjust(#47474c, $lightness: 4%) ;
+}
+.quicktoggle:active,
+.quicktogglehasmenu:active {
+  background:color.adjust(#47474c, $lightness: 9%);
+}
+.quicktoggle:checked,
+.quicktogglehasmenu:checked {
+  background: $accent-color;
+}
+.quicktoggle:checked:hover,
+.quicktogglehasmenu:checked:hover {
+  background:color.adjust($accent-color, $lightness: 4%);
+}
+.quicktoggle:checked:active,
+.quicktogglehasmenu:checked:active {
+  background:color.adjust($accent-color, $lightness: 9%);
+}
+
+.quicktogglemenu > button {
+  border-color: #68686b;
+  border-width: 0px 0px 0px 1px ;
+  background: color.adjust(#4a4a4f, $lightness: 7%);
+  min-width: 32px;
+  min-height: 3.273em;
+  border-radius: 0px 999px 999px 0px;
+  margin: 4px 8px 4px 0;
+}
+.quicktogglemenu > button:hover {
+  background:color.adjust(#47474c, $lightness: 11%);
+}
+.quicktogglemenu > button:active {
+  background:color.adjust(#47474c, $lightness: 14%);
+}
+.quicktogglehasmenu:checked + .quicktogglemenu > button,
+.quicktogglehasmenu:checked + .quicktogglemenu > button:checked {
+  background:color.mix(white, #3a944a, 25%);
+  border-color:#75b480
+}
+.quicktogglehasmenu:checked + .quicktogglemenu > button:hover {
+  background:color.mix(white, #3a944a, 33%);
+}
+.quicktogglehasmenu:checked + .quicktogglemenu > button:active{
+  background:color.mix(white, #3a944a, 40%);
+}
+//The Pages (submenus of quicktoggles)
+.toppage > contents,
+.wifipage > contents,
+.bluetoothpage > contents {
+  background:$unselected-gray;
+  padding:16px;
+  min-width:24em;
+  border-width:0px;
+  box-shadow: none;
+  
+}
+.toppage > contents,
+.bluetoothpage > contents {
+  margin-right:35px;
+}
+.wifipage > contents {
+  margin-left : 55px;
+}
+.pageicon {
+  background: $accent-color;
+  padding:8px;
+  border-radius:999px;
+}
+.pagetitle {
+  padding-left: 8px;
+  font-weight: bold;
+  font-size:1.25em;
+}
+.pagebuttonbox,
+.settingsbuttonbox {
+  padding: 8px 0;
+}
+.pagebutton {
+  min-width:10em;
+  border-radius:8px;
+  border-width:0px;
+  background:transparent;
+  padding:8px;
+  box-shadow: none;
+  margin: 2px 0;
+}
+.pagebutton:hover,
+.settingsbutton:hover {
+  background:color.adjust(#47474c, $lightness: 4%)
+}
+.pagebutton:active,
+.settingsbutton:active {
+  background:color.adjust(#47474c, $lightness: 9%)
+}
+.pagebutton > box > image {
+  padding:4px;
+}
+.minorbutton {
+  color: color.adjust(#ffffff, $alpha: -0.5);
+}
+.pageseparator {
+  background:#5a5a5d;
+}
+
+.pageoverlay {
+  background:blue;
+  border-color:yellow;
+}
+
+//Notifications
+
+
+@function gtkalpha($c, $a) {
+  @return string.unquote("alpha(#{$c},#{$a})");
+}
+
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+$error: red;
+
+window.NotificationPopups {
+  all: unset;
+}
+//Notification part of the quick settings
+.clearicon {
+  padding: 4px;
+}
+.nonotificationbox {
+  padding: 8px 0;
+}
+.notificationlabel {
+ padding: 8px;
+}
+.notificationclose {
+  background:color.adjust(#47474c, $lightness: 12%);
+  border-radius:999px;
+  border-width:0px;
+  padding: 2px 6px;
+}
+.notificationclose:hover {
+  background:color.adjust(#47474c, $lightness: 16%);
+}
+.notificationclose:active {
+  background:color.adjust(#47474c, $lightness: 20%);
+}
+//The actual Notification
+.Notification {
+  border-radius: 16px;
+  background-color: $notification-background;
+  box-shadow: 2px 3px 8px 0 gtkalpha(black, 0.4);
+  border: 1pt solid gtkalpha(white, 0.03);
+  min-height:96px;
+
+  &.critical {
+    border: 1pt solid gtkalpha($error, 0.4);
+
+    .header {
+      .app-name {
+        color: gtkalpha($error, 0.8);
+      }
+
+      .app-icon {
+        color: gtkalpha($error, 0.6);
+      }
+    }
+  }
+
+  .header {
+    padding: 0.5rem;
+    color: gtkalpha(white, 0.5);
+
+    .app-icon {
+      margin: 0 0.4rem;
+    }
+
+    .app-name {
+      margin-right: 0.3rem;
+      font-weight: bold;
+
+      &:first-child {
+        margin-left: 0.4rem;
+      }
+    }
+
+    .time {
+      margin: 0 0.4rem;
+    }
+
+  }
+
+  separator {
+    margin: 0 0.4rem;
+    background-color: gtkalpha(white, 0.1);
+  }
+
+  .content {
+    margin: 1rem;
+    margin-top: 0.5rem;
+
+    .summary {
+      font-size: 1.2em;
+      color: white;
+    }
+
+    .body {
+      color: gtkalpha(white, 0.8);
+    }
+
+    .image {
+      border: 1px solid gtkalpha(white, 0.02);
+      margin-right: 0.5rem;
+      border-radius: 9px;
+      min-width: 100px;
+      min-height: 100px;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  .actions {
+    margin: 1rem;
+    margin-top: 0;
+
+    button {
+      margin: 0 0.3rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
