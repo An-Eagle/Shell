@@ -11,7 +11,7 @@ import Tray from "./popovers/Tray.tsx"
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const time = createPoll("", 1000, () => {
-    return GLib.DateTime.new_now_local().format("%b %-e %H:%M")!
+    return GLib.DateTime.new_now_local().format("%b %-e   %H:%M")!
   })
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
 

@@ -9,7 +9,7 @@ import { PageTitle } from "../../defaults/Style"
 
 const notifd = Notifd.get_default()
 
-
+print(notifd.notifications)
 
 export default function Notifications ({ OverlayView, setOverlayView }) {
   const monitors = createBinding(app, "monitors")
@@ -57,7 +57,7 @@ export default function Notifications ({ OverlayView, setOverlayView }) {
 	  </box>
 	</button>
       </box>
-      <box class="nonotificationbox" orientation={Gtk.Orientation.VERTICAL}>
+      <box visible={createBinding(notifd, "notifications").as(notifications => notifications == null || notifications.length === 0)}class="nonotificationbox" orientation={Gtk.Orientation.VERTICAL}>
         <image class="nonotificationicon" iconName="no-notifications-symbolic" pixelSize={24}/>
         <label label="No Notifications"/>
       </box>
