@@ -14,7 +14,7 @@ TODO :
   - Calendar ☐
   - Status indicators 🗹 (would like to improve the battery icons)
   - Quick settings ☐
-    - Screenshot shortcut ☐ (sort of in, but need to close the popover)
+    - Screenshot shortcut 🗹
     - Lock button 🗹
     - Power Menu 🗹
     - Sound/Microphone sliders/muting 🗹
