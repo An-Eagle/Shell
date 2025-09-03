@@ -18,6 +18,7 @@ app.start({
         {(monitor) => (
           <This this={app}>
             <Bar gdkmonitor={monitor} />
+            <NotificationPopups gdkmonitor={monitor}/>
           </This>
         )}
       </For>

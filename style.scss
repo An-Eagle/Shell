@@ -50,6 +50,7 @@ window.Bar {
 .calendarpopover > contents {
   background: transparent;
   border-width:0px;
+  box-shadow:none;
 }
 .calendar {
   background: $standard-gray;
@@ -353,6 +354,7 @@ window.NotificationPopups {
   box-shadow: 2px 3px 8px 0 gtkalpha(black, 0.4);
   border: 1pt solid gtkalpha(white, 0.03);
   min-height:96px;
+  margin : 4px;
 
   &.critical {
     border: 1pt solid gtkalpha($error, 0.4);

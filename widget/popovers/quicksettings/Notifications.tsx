@@ -9,7 +9,6 @@ import { PageTitle } from "../../defaults/Style"
 
 const notifd = Notifd.get_default()
 
-print(notifd.notifications)
 
 export default function Notifications ({ OverlayView, setOverlayView }) {
   const monitors = createBinding(app, "monitors")

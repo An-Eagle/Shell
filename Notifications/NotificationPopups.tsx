@@ -3,6 +3,7 @@ import { Astal, Gtk } from "ags/gtk4"
 import Notifd from "gi://AstalNotifd"
 import Notification from "./Notification"
 import { createBinding, For, createState, onCleanup } from "ags"
+import { timeout } from "ags/time"
 
 export default function NotificationPopups() {
   const monitors = createBinding(app, "monitors")
@@ -22,7 +23,9 @@ export default function NotificationPopups() {
       setNotifications((ns) => [notification, ...ns])
     }
   })
-  notifd.set_ignore_timeout(true)
+
+  notifd.set_ignore_timeout(true);
+  
   const resolvedHandler = notifd.connect("resolved", (_, id) => {
     setNotifications((ns) => ns.filter((n) => n.id !== id))
   })
@@ -30,8 +33,9 @@ export default function NotificationPopups() {
   onCleanup(() => {
     notifd.disconnect(notifiedHandler)
     notifd.disconnect(resolvedHandler)
+    notifd.set_ignore_timeout(false);
   })
-
+  let notiftimeout
   return (
     <For each={monitors}>
       {(monitor) => (
@@ -43,8 +47,23 @@ export default function NotificationPopups() {
           anchor={Astal.WindowAnchor.BOTTOM | Astal.WindowAnchor.CENTER}
         >
           <box orientation={Gtk.Orientation.VERTICAL}>
-            <For each={notifications}>
-              {(notification) => <Notification notification={notification} popup_notification={true}/>}
+            <For each={notifications((ns) => ns.slice(0,1))}>
+              {(notification) => {
+	        notiftimeout = notification.expireTimeout
+                if (notiftimeout > 0) {
+                  timeout(notiftimeout, () => {
+                    setNotifications((ns) => ns.filter((n) => n.id !== notification.id))
+		  });
+		}
+		else if (notiftimeout === 0 || notiftimeout === -1) {
+                  timeout(5000, () => {
+                    setNotifications((ns) => ns.filter((n) => n.id !== notification.id))
+                  });
+		}
+	        return (
+	          <Notification notification={notification} popup_notification={true}/>
+		)
+	      }}
             </For>
           </box>
         </window>
