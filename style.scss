@@ -49,6 +49,7 @@ window.Bar {
 //Calendar
 .calendarpopover > contents {
   background: transparent;
+  border-width:0px;
 }
 .calendar {
   background: $standard-gray;

@@ -54,7 +54,7 @@ export default function Wifi() {
             </box>
 	  </button>
        	</box>
-	<box class="pagebuttonbox"visible={wifi(Boolean)}>
+	<box vexpand={true} class="pagebuttonbox"visible={wifi(Boolean)}>
           <With value={wifi}>
             {(wifi) =>
               wifi && (

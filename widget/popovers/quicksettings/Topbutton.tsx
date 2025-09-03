@@ -4,14 +4,18 @@ import { execAsync } from "ags/process"
 
 import { PageTitle } from "../../defaults/Style"
 
-export default function TopButton ({ OverlayView, setOverlayView }) {
+export default function TopButton ({ getPopoverRef, OverlayView, setOverlayView }) {
   return (
    <box class="topbox" orientation={Gtk.Orientation.HORIZONTAL}>
       <button 
 	class = "topbutton"
-	onClicked= { async () => 
+	onClicked= { () => {
+          const popover = getPopoverRef();
+          if (popover) {
+            popover.popdown();
+          }
 	  execAsync(`distrobox-host-exec niri msg action screenshot`)
-	}
+	}}
       >
 	<image class="topicon" iconName="screenshooter-symbolic"/>
       </button>

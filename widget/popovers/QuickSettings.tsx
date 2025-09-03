@@ -44,15 +44,18 @@ const BlurBox = GObject.registerClass({
 
 export default function QuickSettings() {
   const [OverlayView, setOverlayView] = createState(false)
+  let popoverRef: Gtk.Popover;
   return (
+    <popover $={(p) => (popoverRef = p)} name="quicksettings" class="quicksettings">
       <BlurBox
         orientation={Gtk.Orientation.VERTICAL}
         blurActive={OverlayView}
       >
-	<TopButton OverlayView={OverlayView} setOverlayView={setOverlayView} />
+	<TopButton getPopoverRef={() => popoverRef} OverlayView={OverlayView} setOverlayView={setOverlayView} />
 	<Sliders/>
 	<QuickToggles OverlayView={OverlayView} setOverlayView={setOverlayView} />
 	<Notifications OverlayView={OverlayView} setOverlayView={setOverlayView} />
       </BlurBox>
+    </popover>
   )
 }

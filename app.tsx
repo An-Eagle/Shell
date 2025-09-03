@@ -1,8 +1,9 @@
 #!/usr/bin/env -S ags run
 import app from "ags/gtk4/app"
+import { createBinding, For, This } from "ags"
+
 import style from "./style.scss"
 import Bar from "./widget/Bar"
-
 import NotificationPopups from "./Notifications/NotificationPopups"
 
 app.start({
@@ -11,7 +12,15 @@ app.start({
   icons: "icons/",
   gtkTheme: "Adwaita-dark",
   main() {
-    app.get_monitors().map(Bar)
-
+    const monitors = createBinding(app, "monitors")
+    return (
+      <For each={monitors}>
+        {(monitor) => (
+          <This this={app}>
+            <Bar gdkmonitor={monitor} />
+          </This>
+        )}
+      </For>
+    )
   },
 })
