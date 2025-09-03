@@ -31,7 +31,7 @@ TODO :
       - Add a do not disturb option ☐ (waiting on a method for night light, for symmetry reasons)
 
 
-- Notification popup ☐ 
+- Notification popup 🗹
 
 - Application launcher ☐
 
