@@ -15,7 +15,7 @@ async function NetSettings () {
     try {
       await execAsync(`nm-connection-editor`)
     } catch (error) {
-      console.error(error)
+      console.error("nm-connection-editor error :" + error)
     }
 }
 
@@ -38,7 +38,7 @@ export default function Wifi() {
   };
   
   return (	
-    <popover class="wifipage" name="Wifi page">
+    <popover class="wifipage">
       <box orientation={Gtk.Orientation.VERTICAL}>
         <box orientation={Gtk.Orientation.HORIZONTAL}>
 	  <image class="pageicon" iconName="network-wireless-signal-excellent-symbolic" pixelSize={32}/>
@@ -73,7 +73,7 @@ export default function Wifi() {
 			  class="pagebutton"
 			  onClicked={() => {
                         }}>
-			  <box spacing={4}>
+			  <box spacing={4} hexpand={true}>
 			    <image iconName={createBinding(ap, "iconName")} />
 			    <label label={createBinding(ap, "ssid")} />
 			    <image
