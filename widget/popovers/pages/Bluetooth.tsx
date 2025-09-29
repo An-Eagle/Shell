@@ -1,6 +1,6 @@
 import Pango from "gi://Pango"
 import app from "ags/gtk4/app"
-import { With, Accessor, For, createState, For, createBinding } from "ags"
+import { With, Accessor, For, createState, For, createBinding, createComputed } from "ags"
 import { Astal, Gtk, Gdk } from "ags/gtk4"
 import Bluetooth from "gi://AstalBluetooth"
 import { execAsync } from "ags/process"
@@ -52,10 +52,9 @@ export default function BluetoothPage() {
 		     <box hexpand={true} />
 		     <label 
 		       halign={Gtk.Align.END}
-                       visible={createBinding(dev, "batteryPercentage").as(batt =>
-                         batt !== null && batt !== "" && batt !== -1
+		       visible={createComputed([createBinding(dev, "batteryPercentage"),createBinding(dev,"connected")], (batt, conn) => 
+                         conn === true && batt !== null && batt !== "" && batt !== -1 
 		       )}
-
 		       label={createBinding(dev, "batteryPercentage").as(percent => 
 		         (percent === null || percent === "" || percent === -1)
 			   ? "" 
@@ -70,8 +69,8 @@ export default function BluetoothPage() {
 		     />
 		     <image
 		       halign={Gtk.Align.END}
-		       visible={createBinding(dev, "batteryPercentage").as(batt =>
-                         batt !== null && batt !== "" && batt !== -1
+		       visible={createComputed([createBinding(dev, "batteryPercentage"),createBinding(dev,"connected")], (batt, conn) => 
+                         conn === true && batt !== null && batt !== "" && batt !== -1 
 		       )}
 		       iconName={createBinding(dev, "batteryPercentage").as(batt =>
 		      `battery-level-${Math.floor(batt * 100)}-symbolic`)}

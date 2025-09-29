@@ -22,7 +22,7 @@ return(
 	active={createBinding(default_speaker, "mute")}
 	onToggled={({ active }) => {default_speaker.set_mute(active)}}
       >
-	<image iconName= {createBinding(default_speaker, "volumeIcon")}/>
+	<image iconName= {createBinding(default_speaker, "volumeIcon")} pixelSize={20}/>
       </togglebutton>
       <slider
 	class="slider"
@@ -50,7 +50,7 @@ return(
 	active={createBinding(default_microphone, "mute")}
 	onToggled={({ active }) => {default_microphone.set_mute(active)}}
       >
-	<image iconName= {createBinding(default_microphone, "volumeIcon")}/>
+	<image iconName= {createBinding(default_microphone, "mute").as(mute => mute===true ? "microphone-disabled-symbolic" : "microphone-sensitivity-high-symbolic")}pixelSize={18}/>
       </togglebutton>
       <slider
 	class = "slider"

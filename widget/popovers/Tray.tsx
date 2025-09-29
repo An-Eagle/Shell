@@ -43,7 +43,7 @@ export default function SysTray() {
 	    }}
             class="headerbutton" name="Tray Button"
 	  >
-            <image gicon={createBinding(item, "gicon")} />
+            <image gicon={createBinding(item, "gicon")} pixelSize={20} />
           </menubutton>
         )}
       </For>

@@ -11,6 +11,7 @@ app.start({
   css: style,
   icons: "icons/",
   gtkTheme: "Adwaita-dark",
+  iconTheme:"Flat-Remix-Green-Dark",
   main() {
     const monitors = createBinding(app, "monitors")
     return (

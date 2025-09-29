@@ -33,7 +33,7 @@ export default function QuickToggles({ OverlayView, setOverlayView }) {
 		    }}
 		  >
 		    <box orientation={Gtk.Orientation.HORIZONTAL}>
-		      <image class="quicktoggleicon" iconName="network-wireless-signal-excellent-symbolic" pixelSize={24}/>
+		      <image class="quicktoggleicon" iconName="network-wireless-signal-excellent-symbolic" pixelSize={28}/>
 		      <box 
 			valign={Gtk.Align.CENTER}
 			halign
@@ -60,7 +60,7 @@ export default function QuickToggles({ OverlayView, setOverlayView }) {
 		      onToggled={({ active }) => {bluetooth.adapter?.set_powered(!bluetooth.adapter.powered)}}
 		    >
 		      <box orientation={Gtk.Orientation.HORIZONTAL}>
-			<image class="quicktoggleicon" iconName="bluetooth-active-symbolic" pixelSize={24}/>
+			<image class="quicktoggleicon" iconName="bluetooth-active-symbolic" pixelSize={28}/>
 			<box 
 			  valign={Gtk.Align.CENTER}
 			  halign
@@ -96,7 +96,7 @@ export default function QuickToggles({ OverlayView, setOverlayView }) {
 
 		  >
 		    <box hexpand = {false }orientation={Gtk.Orientation.HORIZONTAL}>
-		      <image class="quicktoggleicon" iconName="power-profile-performance-symbolic" pixelSize={16}/>
+		      <image class="quicktoggleicon" iconName="power-profile-performance-symbolic" pixelSize={24}/>
 		      <box
 			valign={Gtk.Align.CENTER}
 			halign
@@ -131,7 +131,7 @@ export default function QuickToggles({ OverlayView, setOverlayView }) {
 		    }}
 		  >
 		    <box orientation={Gtk.Orientation.HORIZONTAL}>
-		      <image class="quicktoggleicon" iconName={Caffeine} pixelSize={16}/>
+		      <image class="quicktoggleicon" iconName={Caffeine} pixelSize={24}/>
 		      <box
 			valign={Gtk.Align.CENTER}
 			halign

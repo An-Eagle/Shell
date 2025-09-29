@@ -27,12 +27,12 @@ export default function TopButton ({ getPopoverRef, OverlayView, setOverlayView 
 	  execAsync(`distrobox-host-exec hyprlock`)
 	}
       >
-	<image class="topicon" iconName="changes-prevent-symbolic" />
+	<image class="topicon" iconName="changes-prevent-symbolic" pixelSize={16} />
       </button>
       <menubutton class="topmenu" halign={Gtk.Align.END} onNotifyActive={(btn)=> {
         setOverlayView(btn.active) 
       }}>
-	<image class="topicon" iconName="system-shutdown-symbolic"/>
+	<image class="topicon" iconName="system-shutdown-symbolic" pixelSize={24}/>
 	<popover  class="toppage">
 	  <box orientation={Gtk.Orientation.VERTICAL}>
 	    <box orientation={Gtk.Orientation.HORIZONTAL}>

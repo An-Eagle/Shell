@@ -20,7 +20,6 @@ function Layout() {
 }
 
 export default function SystemStatus() {
-
   const percent = createBinding(
     battery,
     "percentage",
@@ -32,11 +31,11 @@ export default function SystemStatus() {
       class="sysstatus"
     >
       <label label = <Layout/>/>
-      <image visible ={createBinding(wp.audio.default_microphone, "mute").as(m => !m)} iconName="microphone-sensitivity-high-symbolic" />
-      <image iconName={createBinding(wp.audio.default_speaker, "volumeIcon")}/>
-      <image iconName={createBinding(network.wifi, "icon-name")}/>
+      <image class="activemicrophone" visible ={createBinding(wp.audio.default_microphone, "mute").as(m => !m)} iconName="microphone-sensitivity-high-symbolic" pixelSize={12} />
+      <image iconName={createBinding(wp.audio.default_speaker, "volumeIcon")}pixelSize={20}/>
+      <image iconName={createBinding(network.wifi, "icon-name")}pixelSize={20}/>
+      <image iconName={createBinding(battery, "iconName")} pixelSize={20}/>
       <label label={percent} />
-      <image iconName={createBinding(battery, "iconName")} />
     </box>
   )
 }
