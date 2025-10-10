@@ -7,7 +7,6 @@ import Bar from "./widget/Bar"
 import NotificationPopups from "./Notifications/NotificationPopups"
 
 app.start({
-  instanceName: "bar",
   css: style,
   icons: "icons/",
   gtkTheme: "Adwaita-dark",

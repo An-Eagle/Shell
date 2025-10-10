@@ -23,7 +23,10 @@ export default function BluetoothPage() {
 	  <image class="pageicon" iconName="bluetooth-active-symbolic" pixelSize={32}/>
 	  <PageTitle label="Bluetooth"/>
 	</box>
-        <box class="pagebuttonbox" orientation = {Gtk.Orientation.VERTICAL}>
+	<box visible ={createBinding(bluetooth, "isPowered").as((p)=> (!p))}>
+	  <label label="Bluetooth Disabled" />
+	</box>
+        <box visible={createBinding(bluetooth, "isPowered")} class="pagebuttonbox" orientation = {Gtk.Orientation.VERTICAL}>
 	  <For each={createBinding(Bluetooth.get_default(), "devices")}>
 	     {(dev: Bluetooth.Device) => {
 	       return (
