@@ -5,10 +5,13 @@ import { Astal, Gtk, Gdk } from "ags/gtk4"
 import { execAsync } from "ags/process"
 import { PageTitle } from "../../defaults/Style"
 
-export default function PowerMenu () {
+export default function PowerMenu ({PowerMenuView, setPowerMenuView})  {
   return (
     <box class ="overlaypage" orientation={Gtk.Orientation.VERTICAL}>
       <box orientation={Gtk.Orientation.HORIZONTAL}>
+        <button onClicked={()=>{setPowerMenuView(false)}}>
+	  <label label ="works" visible = {PowerMenuView}/>
+	</button>
 	<image class="pageicon" iconName="system-shutdown-symbolic" pixelSize={24}/>
 	<PageTitle class="pagetitle" label="Power Off"/>
       </box>

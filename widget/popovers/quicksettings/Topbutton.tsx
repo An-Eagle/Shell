@@ -3,8 +3,9 @@ import { Astal, Gtk, Gdk } from "ags/gtk4"
 import { execAsync } from "ags/process"
 
 import { PageTitle } from "../../defaults/Style"
+import PowerMenu from "../pages/Power"
 
-export default function TopButton ({ getPopoverRef, OverlayView, setOverlayView }) {
+export default function TopButton ({ getPopoverRef, PowerMenuView, setPowerMenuView }) {
   return (
    <box class="topbox" orientation={Gtk.Orientation.HORIZONTAL}>
       <button 
@@ -29,65 +30,11 @@ export default function TopButton ({ getPopoverRef, OverlayView, setOverlayView 
       >
 	<image class="topicon" iconName="changes-prevent-symbolic" pixelSize={16} />
       </button>
-      <menubutton class="topmenu" halign={Gtk.Align.END} onNotifyActive={(btn)=> {
-        setOverlayView(btn.active) 
+      <button class="topmenu" halign={Gtk.Align.END} onClicked={()=> {
+        setPowerMenuView(true) 
       }}>
 	<image class="topicon" iconName="system-shutdown-symbolic" pixelSize={24}/>
-	<popover  class="toppage">
-	  <box orientation={Gtk.Orientation.VERTICAL}>
-	    <box orientation={Gtk.Orientation.HORIZONTAL}>
-	      <image class="pageicon" iconName="system-shutdown-symbolic" pixelSize={24}/>
-	      <PageTitle class="pagetitle" label="Power Off"/>
-	    </box>
-	    <box class="pagebuttonbox" orientation={Gtk.Orientation.VERTICAL}>
-	      <button class="pagebutton"
-		onClicked= { async () => 
-		execAsync(`distrobox-host-exec systemctl suspend`)
-		}
-	      >
-		<label 
-		  halign={Gtk.Align.START}
-		  label="Suspend"
-		/>
-	      </button>
-	      <button class="pagebutton"
-		onClicked= { async () => 
-		execAsync(`distrobox-host-exec systemctl reboot`)
-		}
-	      >
-		<label 
-		  label="Restart..."
-		  halign={Gtk.Align.START}
-		/>
-	      </button>
-	      <button class="pagebutton"
-		onClicked= { async () => 
-		execAsync(`distrobox-host-exec systemctl poweroff`)
-		}
-	      >
-		<label 
-		  label="Poweroff..."
-		  halign={Gtk.Align.START}
-		/>
-	      </button>
-	    </box>
-	    <Gtk.Separator class="pageseparator" orientation={Gtk.Orientation.HORIZONTAL}/>
-	    <box class="settingsbuttonbox">
-	      <button class="pagebutton"
-		onClicked= { async () => 
-		execAsync(`distrobox-host-exec niri msg action quit`)
-		}
-	      >
-		<label 
-		  halign={Gtk.Align.START}
-		  hexpand={true}
-		  label="Log Out..."
-		/>
-	      </button>
-	    </box>
-	  </box>
-	</popover>
-      </menubutton>
+      </button>
     </box>
   )
 }
