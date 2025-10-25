@@ -2,7 +2,7 @@ import app from "ags/gtk4/app"
 import { Astal, Gtk, Gdk } from "ags/gtk4"
 import { With, Accessor, For, createState, For, createBinding } from "ags"
 
-import { QuickToggleTitle, QuickToggleSubtitle, QuickToggleHasMenuTitle, QuickToggleHasMenuSubtitle } from "../../defaults/Style" 
+import { QuickToggleTitle, QuickToggleSubtitle, QuickToggleHasMenuTitle, QuickToggleHasMenuSubtitle } from "../../../Defaults/Style" 
 
 import Network from "gi://AstalNetwork"
 import Wifipage from "../pages/Wifi"
@@ -17,10 +17,9 @@ const powerprofiles = PowerProfiles.get_default()
 
 
 
-export default function QuickToggles({ OverlayView, setOverlayView }) {
+export default function QuickToggles({ WifiView, setWifiView, BluetoothView, setBluetoothView }) {
   let caffeineCookie = null
   const [Caffeine, setCaffeine] = createState("my-caffeine-off-symbolic")
-
   return (
     <box orientation={Gtk.Orientation.VERTICAL}>
 	      <box orientation={Gtk.Orientation.HORIZONTAL}>
@@ -47,11 +46,11 @@ export default function QuickToggles({ OverlayView, setOverlayView }) {
 		      </box>
 		    </box>
 		  </togglebutton>
-		  <menubutton name ="quicktogglemenu" class = "quicktogglemenu" onNotifyActive={(btn)=> {
-                    setOverlayView(btn.active) 
+		  <button name ="quicktogglemenu" class = "quicktogglemenu" onClicked={(btn)=> {
+                    setWifiView(true) 
                   }}>
-		    <Wifipage/>
-		  </menubutton>
+	            <image iconName="go-next-symbolic"/>
+		  </button>
 		</box>
 		  <box>
 		    <togglebutton
@@ -74,11 +73,11 @@ export default function QuickToggles({ OverlayView, setOverlayView }) {
 			</box>
 		      </box>
 		    </togglebutton>
-		    <menubutton name="quicktogglemenu" class="quicktogglemenu" onNotifyActive={(btn)=> {
-                      setOverlayView(btn.active) 
+		    <button name="quicktogglemenu" class="quicktogglemenu" onClicked={()=> {
+                      setBluetoothView(true) 
                     }}>
-		      <Bluetoothpage/>
-		    </menubutton>
+	              <image iconName="go-next-symbolic"/>
+		    </button>
 		  </box>
 	      </box>
 	      <box orientation={Gtk.Orientation.HORIZONTAL}>

@@ -1,7 +1,7 @@
 import app from "ags/gtk4/app"
 import { Astal, Gtk } from "ags/gtk4"
 import Notifd from "gi://AstalNotifd"
-import Notification from "./Notification"
+import Notification from "../Generics/Notification"
 import { createBinding, For, createState, onCleanup } from "ags"
 import { timeout } from "ags/time"
 

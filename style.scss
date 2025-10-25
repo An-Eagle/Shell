@@ -122,8 +122,7 @@ window.Bar {
   color:white;
 }
 .clearbutton,
-.topbutton,
-.topmenu > button {
+.topbutton {
   background:$unselected-gray;
   border-radius:999px;
   min-width:32px;
@@ -132,13 +131,11 @@ window.Bar {
   border-width:0px;
 }
 .clearbutton:hover,
-.topbutton:hover,
-.topmenu > button:hover {
+.topbutton:hover {
   background: color.adjust(#47474c, $lightness: 4%);
 }
 .clearbutton:active,
-.topbutton:active,
-.topmenu > button:active {
+.topbutton:active {
   background: color.adjust(#47474c, $lightness: 9%);
 }
 //The Icons/buttons near the sliders
@@ -229,7 +226,7 @@ window.Bar {
   background:color.adjust($accent-color, $lightness: 9%);
 }
 
-.quicktogglemenu > button {
+.quicktogglemenu {
   border-color: #68686b;
   border-width: 0px 0px 0px 1px ;
   background: color.adjust(#4a4a4f, $lightness: 7%);
@@ -238,21 +235,21 @@ window.Bar {
   border-radius: 0px 999px 999px 0px;
   margin: 4px 8px 4px 0;
 }
-.quicktogglemenu > button:hover {
+.quicktogglemenu:hover {
   background:color.adjust(#47474c, $lightness: 11%);
 }
-.quicktogglemenu > button:active {
+.quicktogglemenu:active {
   background:color.adjust(#47474c, $lightness: 14%);
 }
-.quicktogglehasmenu:checked + .quicktogglemenu > button,
-.quicktogglehasmenu:checked + .quicktogglemenu > button:checked {
+.quicktogglehasmenu:checked + .quicktogglemenu,
+.quicktogglehasmenu:checked + .quicktogglemenu:checked {
   background:color.mix(white, #3a944a, 25%);
   border-color:#75b480
 }
-.quicktogglehasmenu:checked + .quicktogglemenu > button:hover {
+.quicktogglehasmenu:checked + .quicktogglemenu:hover {
   background:color.mix(white, #3a944a, 33%);
 }
-.quicktogglehasmenu:checked + .quicktogglemenu > button:active{
+.quicktogglehasmenu:checked + .quicktogglemenu:active{
   background:color.mix(white, #3a944a, 40%);
 }
 //The Pages (submenus of quicktoggles)

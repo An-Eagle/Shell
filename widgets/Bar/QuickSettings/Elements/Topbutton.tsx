@@ -2,8 +2,8 @@ import app from "ags/gtk4/app"
 import { Astal, Gtk, Gdk } from "ags/gtk4"
 import { execAsync } from "ags/process"
 
-import { PageTitle } from "../../defaults/Style"
-import PowerMenu from "../pages/Power"
+import { PageTitle } from "../../../defaults/Style"
+import PowerMenu from "../Pages/Power"
 
 export default function TopButton ({ getPopoverRef, PowerMenuView, setPowerMenuView }) {
   return (
@@ -24,13 +24,17 @@ export default function TopButton ({ getPopoverRef, PowerMenuView, setPowerMenuV
       <button
 	halign={Gtk.Align.END}
 	class = "topbutton"
-	onClicked= { async () => 
+	onClicked= { async () => {
+          const popover = getPopoverRef();
+          if (popover) {
+            popover.popdown();
+          }
 	  execAsync(`distrobox-host-exec hyprlock`)
-	}
+	}}
       >
 	<image class="topicon" iconName="changes-prevent-symbolic" pixelSize={16} />
       </button>
-      <button class="topmenu" halign={Gtk.Align.END} onClicked={()=> {
+      <button class="topbutton" halign={Gtk.Align.END} onClicked={()=> {
         setPowerMenuView(true) 
       }}>
 	<image class="topicon" iconName="system-shutdown-symbolic" pixelSize={24}/>

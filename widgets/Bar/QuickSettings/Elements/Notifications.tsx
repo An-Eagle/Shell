@@ -4,8 +4,8 @@ import { execAsync } from "ags/process"
 import { createBinding, For, createState, onCleanup } from "ags"
 import Notifd from "gi://AstalNotifd"
 
-import Notification from "../../../Notifications/Notification"
-import { PageTitle } from "../../defaults/Style"
+import Notification from "../../../Generics/Notification"
+import { PageTitle } from "../../../Defaults/Style"
 
 const notifd = Notifd.get_default()
 

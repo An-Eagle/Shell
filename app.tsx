@@ -3,8 +3,8 @@ import app from "ags/gtk4/app"
 import { createBinding, For, This } from "ags"
 
 import style from "./style.scss"
-import Bar from "./widget/Bar"
-import NotificationPopups from "./Notifications/NotificationPopups"
+import Bar from "./widgets/Bar/Bar"
+import NotificationPopups from "./widgets/Notifications/NotificationPopups"
 
 app.start({
   css: style,

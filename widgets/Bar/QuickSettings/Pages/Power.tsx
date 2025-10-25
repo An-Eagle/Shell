@@ -3,18 +3,20 @@ import app from "ags/gtk4/app"
 import { With, Accessor, For, createState, For, createBinding } from "ags"
 import { Astal, Gtk, Gdk } from "ags/gtk4"
 import { execAsync } from "ags/process"
-import { PageTitle } from "../../defaults/Style"
+import { PageTitle } from "../../../Defaults/Style"
+import Page from "../../../Generics/Page"
+
+async function Logout(){
+    try {
+      await execAsync(`distrobox-host-exec niri msg action quit`)
+    } catch (error) {
+      console.error("Logout error :" + error)
+    }
+}
 
 export default function PowerMenu ({PowerMenuView, setPowerMenuView})  {
   return (
-    <box class ="overlaypage" orientation={Gtk.Orientation.VERTICAL}>
-      <box orientation={Gtk.Orientation.HORIZONTAL}>
-        <button onClicked={()=>{setPowerMenuView(false)}}>
-	  <label label ="works" visible = {PowerMenuView}/>
-	</button>
-	<image class="pageicon" iconName="system-shutdown-symbolic" pixelSize={24}/>
-	<PageTitle class="pagetitle" label="Power Off"/>
-      </box>
+    <Page PageView={PowerMenuView} setPageView={setPowerMenuView} icon={"system-shutdown-symbolic"} label={"Power Off"} finaloption={Logout} finaloptionlabel="Log out">
       <box class="pagebuttonbox" orientation={Gtk.Orientation.VERTICAL}>
 	<button class="pagebutton"
 	  onClicked= { async () => 
@@ -47,20 +49,6 @@ export default function PowerMenu ({PowerMenuView, setPowerMenuView})  {
 	  />
 	</button>
       </box>
-      <Gtk.Separator class="pageseparator" orientation={Gtk.Orientation.HORIZONTAL}/>
-      <box class="settingsbuttonbox">
-	<button class="pagebutton"
-	  onClicked= { async () => 
-	  execAsync(`distrobox-host-exec niri msg action quit`)
-	  }
-	>
-	  <label 
-	    halign={Gtk.Align.START}
-	    hexpand={true}
-	    label="Log Out..."
-	  />
-	</button>
-      </box>
-    </box>
+    </Page>
   )
 }
