@@ -1,8 +1,6 @@
-import app from "ags/gtk4/app"
-import Gtk from "gi://Gtk?version=4.0"
 import Gio from "gi://Gio"
-import { Astal, Gtk, Gdk } from "ags/gtk4"
-import { With, Accessor, For, createState, For, createBinding, createComputed } from "ags"
+import { Gtk } from "ags/gtk4"
+import { For, createBinding } from "ags"
 import Tray from "gi://AstalTray"
 const tray = Tray.get_default()
 

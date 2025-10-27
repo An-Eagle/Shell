@@ -1,7 +1,4 @@
-import app from "ags/gtk4/app"
-import { With, Accessor, For, createState, For, createBinding } from "ags"
-import { Astal, Gtk, Gdk } from "ags/gtk4"
-import { execAsync } from "ags/process"
+import { Gtk } from "ags/gtk4"
 import { PageTitle } from "../Defaults/Style"
 
 interface GenericPageProps {
@@ -26,7 +23,7 @@ export default function Page({
   Refresh,
   children,
 }: PageProps) {
-  return (	
+  return (
       <box class="overlaypage" orientation={Gtk.Orientation.VERTICAL}>
         <box orientation={Gtk.Orientation.HORIZONTAL}>
           <button onClicked={()=>{setPageView(false)}}>

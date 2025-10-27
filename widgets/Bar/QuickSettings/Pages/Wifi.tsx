@@ -1,9 +1,7 @@
-import app from "ags/gtk4/app"
-import { With, Accessor, For, createState, For, createBinding } from "ags"
-import { Astal, Gtk, Gdk } from "ags/gtk4"
+import { With, For, createBinding } from "ags"
+import { Gtk } from "ags/gtk4"
 import Network from "gi://AstalNetwork"
 import { execAsync } from "ags/process"
-import { PageTitle } from "../../../Defaults/Style"
 import Page from "../../../Generics/Page"
 const network = Network.get_default()
 

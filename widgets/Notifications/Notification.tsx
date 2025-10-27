@@ -1,5 +1,3 @@
-import { createState } from "ags"
-import { timeout } from "ags/time"
 import Gtk from "gi://Gtk?version=4.0"
 import Gdk from "gi://Gdk?version=4.0"
 import Adw from "gi://Adw"

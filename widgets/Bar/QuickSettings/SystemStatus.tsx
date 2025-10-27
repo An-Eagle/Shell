@@ -1,4 +1,3 @@
-import app from "ags/gtk4/app"
 import { createBinding } from "ags"
 
 import Network from "gi://AstalNetwork"

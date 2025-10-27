@@ -1,10 +1,8 @@
 import Pango from "gi://Pango"
-import app from "ags/gtk4/app"
-import { With, Accessor, For, createState, For, createBinding, createComputed } from "ags"
-import { Astal, Gtk, Gdk } from "ags/gtk4"
+import { For, createBinding, createComputed } from "ags"
+import { Gtk } from "ags/gtk4"
 import Bluetooth from "gi://AstalBluetooth"
 import { execAsync } from "ags/process"
-import { PageTitle } from "../../../Defaults/Style"
 import Page from "../../../Generics/Page"
 
 const bluetooth = Bluetooth.get_default()

@@ -1,6 +1,5 @@
-import app from "ags/gtk4/app"
-import { Astal, Gtk, Gdk } from "ags/gtk4"
-import { With, Accessor, For, createState, For, createBinding, createComputed } from "ags"
+import { Gtk } from "ags/gtk4"
+import { createBinding, createComputed } from "ags"
 
 import Wp from "gi://AstalWp"
 export default function Sliders() {

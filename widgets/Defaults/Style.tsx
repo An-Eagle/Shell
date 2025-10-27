@@ -1,4 +1,3 @@
-import app from "ags/gtk4/app"
 import Pango from "gi://Pango"
 
 export function QuickToggleTitle(props){

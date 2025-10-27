@@ -1,8 +1,7 @@
 import GLib from "gi://GLib"
 import app from "ags/gtk4/app"
-import { For, createBinding, onCleanup } from "ags"
+import { onCleanup } from "ags"
 import { Astal, Gtk, Gdk } from "ags/gtk4"
-import { execAsync } from "ags/process"
 import { createPoll } from "ags/time"
 
 import SystemStatus from "./SystemStatus.tsx"

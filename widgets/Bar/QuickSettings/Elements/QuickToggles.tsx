@@ -1,15 +1,13 @@
 import app from "ags/gtk4/app"
-import { Astal, Gtk, Gdk } from "ags/gtk4"
-import { With, Accessor, For, createState, For, createBinding } from "ags"
+import { Gtk } from "ags/gtk4"
+import { createState, createBinding } from "ags"
 
 import { QuickToggleTitle, QuickToggleSubtitle, QuickToggleHasMenuTitle, QuickToggleHasMenuSubtitle } from "../../../Defaults/Style" 
 
 import Network from "gi://AstalNetwork"
-import Wifipage from "../pages/Wifi"
 const network = Network.get_default()
 
 import Bluetooth from "gi://AstalBluetooth"
-import Bluetoothpage from "../pages/Bluetooth"
 const bluetooth = Bluetooth.get_default()
 
 import PowerProfiles from "gi://AstalPowerProfiles"
@@ -17,7 +15,7 @@ const powerprofiles = PowerProfiles.get_default()
 
 
 
-export default function QuickToggles({ WifiView, setWifiView, BluetoothView, setBluetoothView }) {
+export default function QuickToggles({setWifiView,setBluetoothView }) {
   let caffeineCookie = null
   const [Caffeine, setCaffeine] = createState("my-caffeine-off-symbolic")
   return (

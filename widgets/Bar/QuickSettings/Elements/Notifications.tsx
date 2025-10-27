@@ -5,12 +5,11 @@ import { createBinding, For, createState, onCleanup } from "ags"
 import Notifd from "gi://AstalNotifd"
 
 import Notification from "../../../Generics/Notification"
-import { PageTitle } from "../../../Defaults/Style"
 
 const notifd = Notifd.get_default()
 
 
-export default function Notifications ({ OverlayView, setOverlayView }) {
+export default function Notifications () {
   const monitors = createBinding(app, "monitors")
 
   const [notifications, setNotifications] = createState(
