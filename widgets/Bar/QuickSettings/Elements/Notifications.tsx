@@ -1,6 +1,5 @@
 import app from "ags/gtk4/app"
-import { Astal, Gtk, Gdk } from "ags/gtk4"
-import { execAsync } from "ags/process"
+import Gtk from "gi://Gtk?version=4.0"
 import { createBinding, For, createState, onCleanup } from "ags"
 import Notifd from "gi://AstalNotifd"
 
@@ -20,15 +19,15 @@ export default function Notifications () {
 
     const notification = notifd.get_notification(id)
     
-    if (replaced && notifications.get().some((n) => n.id === id)) {
-      setNotifications((ns) => ns.map((n) => (n.id === id ? notification : n)))
+    if (replaced && notifications.get().some((n:Notifd.Notification) => n.id === id)) {
+      setNotifications((ns:Notifd.Notification) => ns.map((n:Notifd.Notification) => (n.id === id ? notification : n)))
     } else {
-      setNotifications((ns) => [notification, ...ns])
+      setNotifications((ns:Notifd.Notification) => [notification, ...ns])
     }
   })
   
   const resolvedHandler = notifd.connect("resolved", (_, id) => {
-    setNotifications((ns) => ns.filter((n) => n.id !== id))
+    setNotifications((ns:Notifd.Notification) => ns.filter((n:Notifd.Notification) => n.id !== id))
   })
 
   onCleanup(() => {
@@ -44,7 +43,7 @@ export default function Notifications () {
 	  class = "clearbutton"
 	  halign = {Gtk.Align.END}
 	  onClicked= { () => {
-	    notifd.notifications.forEach((notification) => {
+	    notifd.notifications.forEach((notification:Notifd.Notification) => {
 	      notification.dismiss()
 	    })
 	  }}
@@ -55,14 +54,14 @@ export default function Notifications () {
 	  </box>
 	</button>
       </box>
-      <box visible={createBinding(notifd, "notifications").as(notifications => notifications == null || notifications.length === 0)}class="nonotificationbox" orientation={Gtk.Orientation.VERTICAL}>
+      <box visible={createBinding(notifd, "notifications").as((notifications:Notifd.Notification) => notifications == null || notifications.length === 0)}class="nonotificationbox" orientation={Gtk.Orientation.VERTICAL}>
         <image class="nonotificationicon" iconName="no-notifications-symbolic" pixelSize={24}/>
         <label label="No Notifications"/>
       </box>
       <box orientation={Gtk.Orientation.VERTICAL}>
-	<For each={notifications}>
-	  {(notification) => <Notification notification={notification} />}
-	</For>
+	      <For each={notifications}>
+	        {(notification:Notifd.Notification) => <Notification notification={notification} />}
+	      </For>
       </box>
     </box>
   )

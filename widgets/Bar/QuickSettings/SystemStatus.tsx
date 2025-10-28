@@ -22,7 +22,7 @@ export default function SystemStatus() {
   const percent = createBinding(
     battery,
     "percentage",
-  )((p) => `${Math.floor(p * 100)}%`)
+  )((p: number) => `${Math.floor(p * 100)}%`)
 
   return (
     <box 

@@ -1,5 +1,6 @@
 import app from "ags/gtk4/app"
-import { Astal, Gtk } from "ags/gtk4"
+import Gtk from "gi://Gtk?version=4.0"
+import { Astal } from "ags/gtk4"
 import Notifd from "gi://AstalNotifd"
 import Notification from "../Generics/Notification"
 import { createBinding, For, createState, onCleanup } from "ags"

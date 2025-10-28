@@ -1,5 +1,5 @@
 import Gio from "gi://Gio"
-import { Gtk } from "ags/gtk4"
+import Gtk from "gi://Gtk?version=4.0"
 import { For, createBinding } from "ags"
 import Tray from "gi://AstalTray"
 const tray = Tray.get_default()
