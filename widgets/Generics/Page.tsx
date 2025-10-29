@@ -1,18 +1,7 @@
 import Gtk from "gi://Gtk?version=4.0"
 import { PageTitle } from "../Defaults/Style"
+import {PageProps} from "./Interfaces"
 
-interface GenericPageProps {
-  children: Gtk.Widget | string | Array<GObject.Object | string>
-}
-interface PageProps extends GenericPageProps {
-  PageView: any
-  setPageView: (value: boolean) => void
-  icon: string
-  label: string
-  finaloption: () => void
-  finaloptionlabel: string
-  Refresh : Gtk.Widget | string | Array<GObject.Object | string>
-}
 export default function Page({
   PageView,
   setPageView,

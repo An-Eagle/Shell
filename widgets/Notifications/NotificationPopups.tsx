@@ -3,7 +3,7 @@ import Gtk from "gi://Gtk?version=4.0"
 import { Astal } from "ags/gtk4"
 import Notifd from "gi://AstalNotifd"
 import Notification from "../Generics/Notification"
-import { createBinding, For, createState, onCleanup } from "ags"
+import { createBinding, For, createState, onCleanup } from "gnim"
 import { timeout } from "ags/time"
 
 export default function NotificationPopups() {
@@ -26,7 +26,7 @@ export default function NotificationPopups() {
   })
 
   notifd.set_ignore_timeout(true);
-  
+
   const resolvedHandler = notifd.connect("resolved", (_, id) => {
     setNotifications((ns) => ns.filter((n) => n.id !== id))
   })
@@ -48,23 +48,23 @@ export default function NotificationPopups() {
           anchor={Astal.WindowAnchor.BOTTOM | Astal.WindowAnchor.CENTER}
         >
           <box orientation={Gtk.Orientation.VERTICAL}>
-            <For each={notifications((ns) => ns.slice(0,1))}>
+            <For each={notifications((ns) => ns.slice(0, 1))}>
               {(notification) => {
-	        notiftimeout = notification.expireTimeout
+                notiftimeout = notification.expireTimeout
                 if (notiftimeout > 0) {
                   timeout(notiftimeout, () => {
                     setNotifications((ns) => ns.filter((n) => n.id !== notification.id))
-		  });
-		}
-		else if (notiftimeout === 0 || notiftimeout === -1) {
+                  });
+                }
+                else if (notiftimeout === 0 || notiftimeout === -1) {
                   timeout(5000, () => {
                     setNotifications((ns) => ns.filter((n) => n.id !== notification.id))
                   });
-		}
-	        return (
-	          <Notification notification={notification} popup_notification={true}/>
-		)
-	      }}
+                }
+                return (
+                  <Notification notification={notification}  />
+                )
+              }}
             </For>
           </box>
         </window>

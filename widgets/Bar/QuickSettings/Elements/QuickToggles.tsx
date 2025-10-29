@@ -16,7 +16,7 @@ const powerprofiles = PowerProfiles.get_default()
 
 
 function ToggleBT(active: boolean) {
-	() => { bluetooth.adapter.set_powered(!bluetooth.adapter.powered) }
+	bluetooth.adapter.set_powered(active)
 }
 
 function ToggleWifi(active: boolean) {
@@ -103,7 +103,7 @@ export default function QuickToggles({ setWifiView, setBluetoothView }) {
 
 	const btactive = createBinding(bluetooth, "isPowered").as((powered: boolean) => powered ?? false)
 	const btsubtitle = "Connected Device ?"
-	const btsubtitlevis = createBinding(bluetooth, "isConnected")
+	const btsubtitlevis = createBinding(bluetooth, "isPowered")
 
 	const poweractive = createBinding(powerprofiles, "activeProfile").as((profile: String) => profile === "power-saver")
 	const powersubtitle = createBinding(powerprofiles, "activeProfile").as(prof => prof ?? "")

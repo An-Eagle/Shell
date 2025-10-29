@@ -16,182 +16,213 @@ window.Bar {
   background: black;
   color: transparent;
   font-weight: bold;
-  min-height:32px;
+  min-height: 32px;
 
-  > centerbox {
+  >centerbox {
     background: transparent;
   }
 
-  .headerbutton > button {
+  .headerbutton>button {
     border-radius: 64px;
     border-color: transparent;
-    background : transparent;
-    padding:0 4px;
-    margin : 4px 0px;
+    background: transparent;
+    padding: 0 4px;
+    margin: 4px 0px;
   }
-  .headerbutton:active > button {
+
+  .headerbutton:active>button {
     background: $selected-button-bg-color;
   }
-  
-  .headerbutton:hover >button {
+
+  .headerbutton:hover>button {
     background: $hover-button-bg-color;
   }
-  .headerbutton > button.toggle:checked {
-    background:$selected-button-bg-color;
+
+  .headerbutton>button.toggle:checked {
+    background: $selected-button-bg-color;
   }
+
   //This means the little arrow showing where menubutton is dissapears
-  
-  popover > arrow {
+
+  popover>arrow {
     background-color: transparent;
-    border-width:0px;
+    border-width: 0px;
   }
 }
+
 //Calendar
-.calendarpopover > contents {
+.calendarpopover>contents {
   background: transparent;
-  border-width:0px;
-  box-shadow:none;
+  border-width: 0px;
+  box-shadow: none;
 }
+
 .calendar {
   background: $standard-gray;
   border-radius: 32px;
   padding: 16px;
 }
+
 .today {
-  box-shadow : none;
+  box-shadow: none;
   background: color.adjust(#47474c, $lightness: 4%);
 }
+
 .day-number {
-  border-radius:32px;
+  border-radius: 32px;
   min-height: 32px;
-  min-width:32px;
+  min-width: 32px;
   padding: 4px 2px;
   outline-color: color.adjust($accent-color, $lightness: 25%);
 }
+
 .day-number:hover {
   background: color.adjust(#47474c, $lightness: 4%);
 }
+
 .day-number:active {
   background: color.adjust(#47474c, $lightness: 9%);
 }
+
 .day-number:selected {
-  background:$accent-color;
+  background: $accent-color;
 }
+
 .day-number:selected:hover {
-  background:color.adjust($accent-color, $lightness: 4%);
+  background: color.adjust($accent-color, $lightness: 4%);
 }
+
 .day-number:selected:active {
-  background:color.adjust($accent-color, $lightness: 9%);
+  background: color.adjust($accent-color, $lightness: 9%);
 }
+
 //Tray
-.traybutton > button {
-  background:transparent;
-  border-radius:999px;
-  border-width:0px;
-  margin:4px;
+.traybutton>button {
+  background: transparent;
+  border-radius: 999px;
+  border-width: 0px;
+  margin: 4px;
 }
-.traybutton > button.toggle:checked{
-  background:blue;
+
+.traybutton>button.toggle:checked {
+  background: blue;
 }
+
 //System Icons in the headerbar
 .sysstatus {
-  > label,
-  > image {
+
+  >label,
+  >image {
     margin: 0px 2px;
   }
 }
+
 .activemicrophone {
   color: #F57900;
 }
+
 //Quicksettings Menu
-.quicksettings > arrow {
-  background:transparent;
+.quicksettings>arrow {
+  background: transparent;
 }
-.quicksettings > contents {
-  background:$standard-gray;
-  border-radius:32px;
+
+.quicksettings>contents {
+  background: $standard-gray;
+  border-radius: 32px;
   border-width: 0px;
   padding: 16px;
 }
+
 //The page styles
 .overlaypage {
-  background:$unselected-gray;
+  background: $unselected-gray;
 }
+
 //The Button row
 .topicon {
-  color:white;
+  color: white;
 }
+
 .clearbutton,
 .topbutton {
-  background:$unselected-gray;
-  border-radius:999px;
-  min-width:32px;
-  min-height:32px;
-  margin:8px;
-  border-width:0px;
+  background: $unselected-gray;
+  border-radius: 999px;
+  min-width: 32px;
+  min-height: 32px;
+  margin: 8px;
+  border-width: 0px;
 }
+
 .clearbutton:hover,
 .topbutton:hover {
   background: color.adjust(#47474c, $lightness: 4%);
 }
+
 .clearbutton:active,
 .topbutton:active {
   background: color.adjust(#47474c, $lightness: 9%);
 }
+
 //The Icons/buttons near the sliders
 
 .togglemute {
-  background:transparent;
-  border-radius:999px;
-  border-width:0;
+  background: transparent;
+  border-radius: 999px;
+  border-width: 0;
 }
+
 .togglemute:hover {
-  background:rgba(250, 250, 251, 0.13);
+  background: rgba(250, 250, 251, 0.13);
 }
+
 .togglemute:active {
-  background:rgba(250, 250, 251, 0.16);
+  background: rgba(250, 250, 251, 0.16);
 }
+
 //Sliders
 .slider {
-  background:transparent;
+  background: transparent;
 
-  
-  > trough > slider {
-    background:#ffffff;
+
+  >trough>slider {
+    background: #ffffff;
   }
-  
-  > trough > highlight {
-    background : $accent-color;
-    padding : 3px 0px;
-    border-color:$accent-color;
+
+  >trough>highlight {
+    background: $accent-color;
+    padding: 3px 0px;
+    border-color: $accent-color;
   }
-  
-  > trough {
-    background : $light-gray;
-    border : 0px;
+
+  >trough {
+    background: $light-gray;
+    border: 0px;
   }
 }
 
 
 //Individual Toggles (Wifi, Bluetooth...)
-.quicktoggletitle{
+.quicktoggletitle {
   font-weight: bold;
-  font-size:1.25em;
+  font-size: 1.25em;
 }
-.quicktogglesubtitle{
+
+.quicktogglesubtitle {
   font-weight: normal;
-  font-size:0.8em;
+  font-size: 0.8em;
 }
-.quicktoggleicon{
-  padding:4px 12px 4px 4px;
+
+.quicktoggleicon {
+  padding: 4px 12px 4px 4px;
 }
+
 .quicktoggle {
   color: white;
   background: $unselected-gray;
   border-radius: 999px;
   border-width: 0px;
-  min-width:12em;
-  min-height:3.273em;
+  min-width: 12em;
+  min-height: 3.273em;
   margin: 4px 8px;
 }
 
@@ -199,121 +230,141 @@ window.Bar {
   background: $unselected-gray;
   border-radius: 999px 0 0 999px;
   border-width: 0;
-  min-height:3.273em;
-  min-width:9em;
+  min-height: 3.273em;
+  min-width: 9em;
   margin: 4px 0px 4px 8px;
 }
 
 .quicktoggle:hover,
-.quicktogglehasmenu:hover
-{
-  background:color.adjust(#47474c, $lightness: 4%) ;
+.quicktogglehasmenu:hover {
+  background: color.adjust(#47474c, $lightness: 4%);
 }
+
 .quicktoggle:active,
 .quicktogglehasmenu:active {
-  background:color.adjust(#47474c, $lightness: 9%);
+  background: color.adjust(#47474c, $lightness: 9%);
 }
+
 .quicktoggle:checked,
 .quicktogglehasmenu:checked {
   background: $accent-color;
 }
+
 .quicktoggle:checked:hover,
 .quicktogglehasmenu:checked:hover {
-  background:color.adjust($accent-color, $lightness: 4%);
+  background: color.adjust($accent-color, $lightness: 4%);
 }
+
 .quicktoggle:checked:active,
 .quicktogglehasmenu:checked:active {
-  background:color.adjust($accent-color, $lightness: 9%);
+  background: color.adjust($accent-color, $lightness: 9%);
 }
 
 .quicktogglemenu {
   border-color: #68686b;
-  border-width: 0px 0px 0px 1px ;
+  border-width: 0px 0px 0px 1px;
   background: color.adjust(#4a4a4f, $lightness: 7%);
   min-width: 32px;
   min-height: 3.273em;
   border-radius: 0px 999px 999px 0px;
   margin: 4px 8px 4px 0;
 }
+
 .quicktogglemenu:hover {
-  background:color.adjust(#47474c, $lightness: 11%);
+  background: color.adjust(#47474c, $lightness: 11%);
 }
+
 .quicktogglemenu:active {
-  background:color.adjust(#47474c, $lightness: 14%);
+  background: color.adjust(#47474c, $lightness: 14%);
 }
-.quicktogglehasmenu:checked + .quicktogglemenu,
-.quicktogglehasmenu:checked + .quicktogglemenu:checked {
-  background:color.mix(white, #3a944a, 25%);
-  border-color:#75b480
+
+.quicktogglehasmenu:checked+.quicktogglemenu,
+.quicktogglehasmenu:checked+.quicktogglemenu:checked {
+  background: color.mix(white, #3a944a, 25%);
+  border-color: #75b480
 }
-.quicktogglehasmenu:checked + .quicktogglemenu:hover {
-  background:color.mix(white, #3a944a, 33%);
+
+.quicktogglehasmenu:checked+.quicktogglemenu:hover {
+  background: color.mix(white, #3a944a, 33%);
 }
-.quicktogglehasmenu:checked + .quicktogglemenu:active{
-  background:color.mix(white, #3a944a, 40%);
+
+.quicktogglehasmenu:checked+.quicktogglemenu:active {
+  background: color.mix(white, #3a944a, 40%);
 }
+
 //The Pages (submenus of quicktoggles)
-.toppage > contents,
-.wifipage > contents,
-.bluetoothpage > contents {
-  background:$unselected-gray;
-  padding:16px;
-  min-width:24em;
-  border-width:0px;
+.toppage>contents,
+.wifipage>contents,
+.bluetoothpage>contents {
+  background: $unselected-gray;
+  padding: 16px;
+  min-width: 24em;
+  border-width: 0px;
   box-shadow: none;
-  
+
 }
-.toppage > contents,
-.bluetoothpage > contents {
-  margin-right:35px;
+
+.toppage>contents,
+.bluetoothpage>contents {
+  margin-right: 35px;
 }
-.wifipage > contents {
-  margin-left : 55px;
+
+.wifipage>contents {
+  margin-left: 55px;
 }
+
 .pageicon {
   background: $accent-color;
-  padding:8px;
-  border-radius:999px;
+  padding: 8px;
+  border-radius: 999px;
 }
+
 .pagetitle {
   padding-left: 8px;
   font-weight: bold;
-  font-size:1.25em;
+  font-size: 1.25em;
 }
+
 .pagebuttonbox,
 .settingsbuttonbox {
   padding: 8px 0;
 }
+
 .pagebutton {
-  min-width:10em;
-  border-radius:8px;
-  border-width:0px;
-  background:transparent;
-  padding:8px;
+  min-width: 10em;
+  border-radius: 8px;
+  border-width: 0px;
+  background: transparent;
+  padding: 8px;
   box-shadow: none;
   margin: 2px 0;
 }
+
 .pagebutton:hover,
 .settingsbutton:hover {
-  background:color.adjust(#47474c, $lightness: 4%)
+  background: color.adjust(#47474c, $lightness: 4%)
 }
+
 .pagebutton:active,
 .settingsbutton:active {
-  background:color.adjust(#47474c, $lightness: 9%)
+  background: color.adjust(#47474c, $lightness: 9%)
 }
-.pagebutton > box > image {
-  padding:4px;
+
+.pagebutton>box>image {
+  padding: 4px;
 }
+
 .minorbutton {
   color: color.adjust(#ffffff, $alpha: -0.5);
 }
+
 .pageseparator {
-  background:#5a5a5d;
+  background: #5a5a5d;
 }
 
 .pageoverlay {
-  background:blue;
-  border-color:yellow;
+  background: blue;
+  border-color: yellow;
 }
 
 //Notifications
@@ -329,36 +380,43 @@ $error: red;
 window.NotificationPopups {
   all: unset;
 }
+
 //Notification part of the quick settings
 .clearicon {
   padding: 4px;
 }
+
 .nonotificationbox {
   padding: 8px 0;
 }
+
 .notificationlabel {
- padding: 8px;
+  padding: 8px;
 }
+
 .notificationclose {
-  background:color.adjust(#47474c, $lightness: 12%);
-  border-radius:999px;
-  border-width:0px;
+  background: color.adjust(#47474c, $lightness: 12%);
+  border-radius: 999px;
+  border-width: 0px;
   padding: 2px 6px;
 }
+
 .notificationclose:hover {
-  background:color.adjust(#47474c, $lightness: 16%);
+  background: color.adjust(#47474c, $lightness: 16%);
 }
+
 .notificationclose:active {
-  background:color.adjust(#47474c, $lightness: 20%);
+  background: color.adjust(#47474c, $lightness: 20%);
 }
+
 //The actual Notification
 .Notification {
   border-radius: 16px;
   background-color: $notification-background;
   box-shadow: 2px 3px 8px 0 gtkalpha(black, 0.4);
   border: 1pt solid gtkalpha(white, 0.03);
-  min-height:96px;
-  margin : 4px;
+  min-height: 96px;
+  margin: 4px;
 
   &.critical {
     border: 1pt solid gtkalpha($error, 0.4);
@@ -442,4 +500,46 @@ window.NotificationPopups {
       }
     }
   }
+}
+
+.osd {
+  background-color: $standard-gray;
+  border-radius: 32px;
+  border-width: 0;
+  margin : 32px;
+}
+.osdimage {
+  margin:8px;
+}
+.osdprogress {
+  margin-right: 8px;
+  min-height: 8px;
+  min-width: 128px;
+  border-radius: 8px;
+  /* rounded ends */
+  background-color: $unselected-gray;
+  /* light gray background */
+  border: none;
+  padding: 0px;
+}
+
+.osdprogress trough {
+  min-height: 8px;
+  border-radius: 8px;
+  border: none;
+  /* rounded ends */
+  background-color: transparent;
+  /* let the parent color show */
+  padding: 0px;
+}
+
+.osdprogress progress {
+  min-height: 8px;
+  border-radius: 8px;
+  /* rounded ends */
+  background-color: white;
+  /* the fill color */
+  border : none;
+  padding: 0px;
+  margin: 0px;
 }
