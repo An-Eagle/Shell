@@ -69,8 +69,8 @@ function BTDevice (dev: Bluetooth.Device){
 export default function BluetoothPage({ BluetoothView, setBluetoothView }) {
 	return (
 		<Page PageView={BluetoothView} setPageView={setBluetoothView} icon={"bluetooth-active-symbolic"} label={"Bluetooth"} finaloption={BluetoothSettings} finaloptionlabel={"Bluetooth Settings"}>
-			<box visible={createBinding(bluetooth, "isPowered").as((p) => (!p))}>
-				<label label="Bluetooth Disabled" />
+			<box halign={Gtk.Align.CENTER} visible={createBinding(bluetooth, "isPowered").as((p) => (!p))} hexpand>
+				<label class="pagetitle" label="Bluetooth Disabled" />
 			</box>
 			<scrolledwindow>
 				<box visible={createBinding(bluetooth, "isPowered")} class="pagebuttonbox" orientation={Gtk.Orientation.VERTICAL} vexpand={true}>

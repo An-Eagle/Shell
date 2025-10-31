@@ -32,10 +32,13 @@ async function NetSettings() {
 function WifiRefresh() {
   return (
     <button
+      class="topbutton"
       onClicked={() => network.wifi.scan()}
       halign={Gtk.Align.END}
+      hexpand={false}
+      vexpand={false}
     >
-      <box>
+      <box halign={Gtk.Align.CENTER}>
         <image visible={createBinding(network.wifi, "scanning").as(scanning => !scanning)} iconName="object-rotate-right-symbolic" />
         <image visible={createBinding(network.wifi, "scanning")} iconName="media-playback-stop-symbolic" />
       </box>
@@ -89,12 +92,11 @@ export default function Wifi({ WifiView, setWifiView }) {
         {(wifi) =>
           wifi && (
             <box>
-              <box visible={createBinding(wifi, "enabled").as((p) => (!p))}>
-				        <label label="Wi-Fi Disabled" />
+              <box halign={Gtk.Align.CENTER} visible={createBinding(wifi, "enabled").as((p) => (!p))} hexpand>
+				        <label class="pagetitle" label="Wi-Fi Disabled" />
 			        </box>
-              <box
-                visible={createBinding(wifi, "scanning")}>
-                <label label="Scanning..." />
+              <box halign={Gtk.Align.CENTER} visible={createBinding(wifi, "scanning")} hexpand>
+                <label class="pagetitle" label="Scanning..." />
               </box>
               <scrolledwindow>
                 <box

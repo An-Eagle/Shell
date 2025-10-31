@@ -113,6 +113,7 @@ export default function QuickToggles({ setWifiView, setBluetoothView }) {
 	function ToggleCaffeine(active: boolean) {
 		let caffeineCookie = null
 		if (active) {
+			print("tea")
 			caffeineCookie = app.inhibit(
 				null,
 				Gtk.ApplicationInhibitFlags.IDLE,

@@ -4,7 +4,9 @@ import { createBinding, For, onCleanup } from "gnim"
 import { Astal } from "ags/gtk4"
 import { OSDProps } from "./Interfaces"
 
-export default function OSD({ visible, icon, children }: OSDProps) {
+import { OSDTitle } from "../Defaults/Style"
+
+export function OSD({ visible, icon, children }: OSDProps) {
     const monitors = createBinding(app, "monitors")
     return (
         <For each={monitors}>
@@ -22,7 +24,7 @@ export default function OSD({ visible, icon, children }: OSDProps) {
                         class={`osd`}
                         orientation={Gtk.Orientation.HORIZONTAL}
                     >
-                        <image class= "osdimage" iconName={icon} pixelSize={28}/>
+                        <image class="osdimage" iconName={icon} pixelSize={32} />
                         {children}
                     </box>
                 </window>
@@ -31,20 +33,26 @@ export default function OSD({ visible, icon, children }: OSDProps) {
     )
 }
 
-interface SliderOSDProps extends OSDProps {
-    fraction : number
+export function TextOSD({ visible, label }: OSDProps) {
+    return (
+        <OSDTitle visible={visible} label={label}/>
+    )
 }
 
-export function SliderOSD({ visible, icon, fraction }: SliderOSDProps) {
-    <OSD visible={visible} icon={icon}>
-            <Gtk.ProgressBar
-                class="osdprogress"
-                fraction={fraction}  // value from 0.0 to 1.0
-                visible={true}
-                valign={Gtk.Align.CENTER}
-                halign={Gtk.Align.FILL}
-                width_request={120}
-                height_request={8}
-            />
-    </OSD>
+interface SliderOSDProps extends OSDProps {
+    fraction: number
+}
+
+export function SliderOSD({ visible, fraction }: SliderOSDProps) {
+    return (
+        <Gtk.ProgressBar
+            class="osdprogress"
+            fraction={fraction}  // value from 0.0 to 1.0
+            visible={visible}
+            valign={Gtk.Align.CENTER}
+            halign={Gtk.Align.FILL}
+            width_request={192}
+            height_request={16}
+        />
+    )
 }

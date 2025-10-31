@@ -11,7 +11,7 @@ import SystemStatus from "./QuickSettings/SystemStatus"
 import QuickSettings from "./QuickSettings/QuickSettings"
 import Tray from "./Tray/Tray"
 
-export default function Bar({ gdkmonitor }: { gdkmonitor: Gdk.Monitor }) { 
+export default function Bar({ gdkmonitor }: { gdkmonitor: Gdk.Monitor }) {
   let win: Astal.Window
   const time = createPoll("", 1000, () => {
     return GLib.DateTime.new_now_local().format("%b %-e   %H:%M")!
@@ -42,29 +42,29 @@ export default function Bar({ gdkmonitor }: { gdkmonitor: Gdk.Monitor }) {
           halign={Gtk.Align.CENTER}
         >
         </box>
-        <menubutton 
-	  name="headerbutton" class = "headerbutton"
-	  $type="center" 
-	  hexpand 
-	  halign={Gtk.Align.CENTER}
-	>
+        <menubutton
+          name="headerbutton" class="headerbutton"
+          $type="center"
+          hexpand
+          halign={Gtk.Align.CENTER}
+        >
           <label label={time} />
           <popover class="calendarpopover" >
-	    <box>
+            <box>
               <Gtk.Calendar show-heading={false} class="calendar" />
-	    </box>
+            </box>
           </popover>
         </menubutton>
-	<box
+        <box
           $type="end"
-	>
-	  <Tray/>
-	  <menubutton 
-            name="headerbutton" class = "headerbutton">
-              <SystemStatus/>
-              <QuickSettings/>
+        >
+          <Tray />
+          <menubutton
+            name="headerbutton" class="headerbutton">
+            <SystemStatus />
+            <QuickSettings />
           </menubutton>
-	</box>
+        </box>
       </centerbox>
     </window>
   )

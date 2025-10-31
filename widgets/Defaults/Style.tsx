@@ -57,3 +57,15 @@ export function PageTitle(props){
     />
   )
 }
+
+export function OSDTitle(props) {
+  return (
+     <label
+      class="osdtitle"
+      halign
+      maxWidthChars={24}
+      ellipsize={Pango.EllipsizeMode.END}
+      {...props}
+    />
+  )
+}

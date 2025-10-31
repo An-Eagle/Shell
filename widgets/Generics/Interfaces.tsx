@@ -19,7 +19,7 @@ export interface PageProps extends GenericPageProps {
 
 export interface OSDProps {
   visible : boolean
-  icon : string
+  icon : any
   label : string
   children: Gtk.Widget | string | Array<GObject.Object | string>
 }

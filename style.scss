@@ -135,9 +135,20 @@ window.Bar {
 
 //The page styles
 .overlaypage {
-  background: $unselected-gray;
+  background: $standard-gray;
 }
-
+.overlaybackground {
+  background :transparent;
+}
+.toppagebutton {
+  background:blue;
+  border-radius:64px;
+  min-width:32px;
+  min-height:32px;
+  padding :4px;
+  margin:4px;
+  border:none;
+}
 //The Button row
 .topicon {
   color: white;
@@ -315,7 +326,10 @@ window.Bar {
 
 .pageicon {
   background: $accent-color;
-  padding: 8px;
+  padding: 4px;
+  margin:4px;
+  min-width:48px;
+  min-height:48px;
   border-radius: 999px;
 }
 
@@ -504,16 +518,19 @@ window.NotificationPopups {
 
 .osd {
   background-color: $standard-gray;
+  min-width:256px;
+  min-height:64px;
   border-radius: 32px;
   border-width: 0;
   margin : 32px;
 }
 .osdimage {
   margin:8px;
+  padding:4px;
 }
 .osdprogress {
   margin-right: 8px;
-  min-height: 8px;
+  min-height: 16px;
   min-width: 128px;
   border-radius: 8px;
   /* rounded ends */
@@ -524,7 +541,7 @@ window.NotificationPopups {
 }
 
 .osdprogress trough {
-  min-height: 8px;
+  min-height: 16px;
   border-radius: 8px;
   border: none;
   /* rounded ends */
@@ -534,7 +551,7 @@ window.NotificationPopups {
 }
 
 .osdprogress progress {
-  min-height: 8px;
+  min-height: 16px;
   border-radius: 8px;
   /* rounded ends */
   background-color: white;
@@ -542,4 +559,10 @@ window.NotificationPopups {
   border : none;
   padding: 0px;
   margin: 0px;
+}
+
+.osdtitle {
+  padding: 8px;
+  font-weight: bold;
+  font-size: 1.25em;
 }
