@@ -20,7 +20,7 @@ TODO :
     - Sound/Microphone sliders/muting 🗹
     - Brightness slider ☐ (Waiting in hope of an official library https://github.com/Aylur/astal/pull/331 )
     - Network Quicktoggle 🗹
-      - List networks and allows connecting ☐
+      - List networks and allows connecting ☐ (Currently allows passwordless login)
     - Bluetooth Quicktoggle 🗹
       - Allow connecting to paired devices 🗹
       - Allow pairing new devices ☐
@@ -35,4 +35,4 @@ TODO :
 
 - Application launcher ☐
 
-- OSD ☐
+- OSD 🗹
