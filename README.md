@@ -12,10 +12,6 @@ Requires :
 - systemd
 - niri
 
-<img width="1920" height="1080" alt="Screenshot from 2025-08-31 17-57-06" src="https://github.com/user-attachments/assets/d64565c5-4a57-4508-9dfd-dfd72a7d4bb3" />
-
-<img width="1920" height="1079" alt="image" src="https://github.com/user-attachments/assets/e24a6826-b761-4371-a18d-be0cabe22b82" />
-
 
 
 TODO :
