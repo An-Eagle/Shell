@@ -1,4 +1,16 @@
-Requires AGS v3 + https://github.com/sameoldlab/astal/tree/feat/niri for now, until it is merged into the main astal
+Requires :
+- AGS (3.0.0+)
+- astal4
+- astal-battery
+- astal-bluetooth
+- astal-network
+- astal-notifd
+- astal-power-profiles
+- astal-tray
+- astal-wp 
+- https://github.com/sameoldlab/astal/tree/feat/niri for now, until it is merged into the main astal
+- systemd
+- niri
 
 <img width="1920" height="1080" alt="Screenshot from 2025-08-31 17-57-06" src="https://github.com/user-attachments/assets/d64565c5-4a57-4508-9dfd-dfd72a7d4bb3" />
 
